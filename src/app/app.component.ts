@@ -1,13 +1,19 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+
+import { ContractService } from './business/contract/contract.service';
+import { StateLoadedDirective } from './components/state/state-loaded.directive';
+import { StateComponent } from './components/state/state.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  templateUrl: 'app.component.html',
+  styleUrl: 'app.component.scss',
+  imports: [StateComponent, StateLoadedDirective]
 })
 export class AppComponent {
-  title = 'angular-signal-archi';
+  protected readonly $contractsState = this.service.getContractsState();
+  protected readonly $contractTitlesState = this.service.getContractTitlesState();
+
+  constructor(private readonly service: ContractService) {}
 }

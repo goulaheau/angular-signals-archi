@@ -1,0 +1,10 @@
+# Ignore everything:
+/*
+
+# Except /src and /projects:
+!/projects
+!/src
+
+# Ignore generated models:
+**/models/bapi/**
+**/models/pfm/**

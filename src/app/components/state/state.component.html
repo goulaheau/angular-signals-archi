@@ -1,0 +1,15 @@
+@if ($state(); as state) {
+  @switch (state.status) {
+    @case (StateStatus.Loaded) {
+      <ng-container *ngTemplateOutlet="$templateRef(); context: { data: state.data }" />
+    }
+
+    @case (StateStatus.Error) {
+      Error : {{ state.error }}
+    }
+
+    @default {
+      Loading...
+    }
+  }
+}
